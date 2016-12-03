@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bar chart test</title>
+    <script src="https://d3js.org/d3.v3.js"></script>
+</head>
+
+<body>
+    <svg width="300" height="300" id="svg2">
+        
+    </svg>
+</body>
+<script>
+  drawBars(20);
+  function rangeRandom(start, end){
+    var timesVar = end - start + 1;
+    return Math.floor(Math.random() * timesVar + start);
+  }
+
+  function drawBars(repeat){
+     var gap = 3;
+     var height = 300 - gap * 2;
+     var barHeight = 297 / repeat - gap;//計算bar的寬度
+     
+     for(var i = 0 ; i < repeat ; i++){
+        var startY = (barHeight + gap) * i + gap;
+        var limit = rangeRandom(1, 290);
+        d3.select("#svg2").append("line").attr({
+          x1: 0,
+          y1: startY + barHeight / 2 ,
+          x2: limit,
+          y2: startY + barHeight / 2,
+          stroke: "red",
+          "stroke-width": barHeight
+        });
+        d3.select("#svg2").append("text").attr({
+          x: limit + 3,
+          y: startY + gap + barHeight / 2,
+          "font-size": 12
+          }).text("" + limit);
+     }
+  }
+
+</script>
+</html>
