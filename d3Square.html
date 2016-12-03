@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script src="https://d3js.org/d3.v3.js" ></script>
+    <script src="./scripts/script.js"></script>
+</head>
+<body>
+    <input type="text"  id="numInput">
+    <input type="button" value="平方" id="numberIn" />
+</body>
+    <script>
+    document.getElementById("numberIn").addEventListener("click", squareCalc);
+
+    function squareCalc(){
+        //用input時要用property
+        var inputNm = d3.select("#numInput").property("value");
+        //var inputNm = document.getElementById("numInput").value;
+        var result = squareNum(inputNm);
+        //document.getElementById("numInput").value = result;
+        d3.select("#numInput").property("value", result);
+    }
+
+    </script>
+    
+</html>

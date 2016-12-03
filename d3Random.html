@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script src="https://d3js.org/d3.v3.js" ></script>
+    <script src="./scripts/script.js"></script>
+    <style>
+        p {
+          border: 1px solid red;
+          height: 70px;
+          width: 150px;
+          text-align: center;
+          line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <p id="displayMsg"></p>
+    <input type="button" value="產生亂數" id="randomBut" />
+</body>
+    <script>
+        document.getElementById("randomBut").addEventListener("click", produceRandomNm);
+
+        function produceRandomNm(){
+           var randomNm = rangeRandom(1911, 2016);
+           console.log(randomNm);
+           d3.select("#displayMsg").html("<h1>" + randomNm + "</h1>");
+        }
+    </script>
+    
+</html>
